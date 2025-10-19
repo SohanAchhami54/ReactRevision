@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, } from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 const Github = () => {
-    const [data,setData]=useState("");
-    useEffect(()=>{
-      fetch(`https://api.github.com/users/SohanAchhami54`)
-      .then((res)=>res.json())
-      .then((data)=> {
-       console.log("data:",data)
-       setData(data)
-      })
-    },[]);
+  const data=useLoaderData()
+  console.log("data",data);
+    // const [data,setData]=useState("");
+    // useEffect(()=>{
+    //   fetch(`https://api.github.com/users/SohanAchhami54`)
+    //   .then((res)=>res.json())
+    //   .then((data)=> {
+    //    console.log("data:",data)
+    //    setData(data)
+    //   })
+    // },[]);
   return (
     <>
       <div className='bg-gray-700 text-white mx-auto container flex flex-wrap justify-center items-center gap-2 mt-5'>

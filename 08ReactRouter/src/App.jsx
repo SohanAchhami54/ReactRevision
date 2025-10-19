@@ -9,39 +9,19 @@ import Github, { gitHubLoaderInfo } from './components/Github/Github'
 
 function App() {
   const [count, setCount] = useState(0)
-  
-  // const router=createBrowserRouter([
-  //     {
-  //       path:"/",
-  //       element:<Layout/>,
-  //       children:[
-  //         {
-  //           path:"",
-  //           element:<Home/>
-  //         },
-  //         {
-  //           path:"/about",
-  //           element:<About/>
-  //         },
-  //         {
-  //           path:"/contact",
-  //           element:<Contact/>
-  //         }
-  //       ]
-  //     }
-  // ])
   const router=createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<Layout/>}>
-        <Route path='' element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/user/:userId' element={<User/>} />
-        <Route
-        loader={gitHubLoaderInfo}
-        path='/github'
-        element={<Github/>}
-        />
+         <Route path='' element={<Home/>}/>
+         <Route path='/about' element={<About/>}/>
+         <Route path='/contact' element={<Contact/>}/>
+         <Route path='/user/:userId' element={<User/>}/>
+         <Route
+         loader={gitHubLoaderInfo} 
+         path='/github'
+         element={<Github/>}
+          />
+
       </Route>
     )
   )

@@ -5,7 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 const Header = () => {
     const [open,setOpen]=useState(false);
     const navLinkClass=({isActive})=>{
-        return isActive?"text-red-600":"text-black"
+      return isActive?"text-red-600":"text-black"
     }
   return (
     <>

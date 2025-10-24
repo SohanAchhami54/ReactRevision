@@ -1,0 +1,10 @@
+/* index.css */
+@import "tailwindcss";
+
+/* html {
+  @apply bg-white text-black transition-colors duration-500;
+} */
+
+html.dark {
+  @apply bg-gray-900 text-white;
+}

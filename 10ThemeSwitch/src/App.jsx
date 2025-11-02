@@ -6,14 +6,23 @@ import { ThemeProvider } from './context/theme'
 import { Card, ThemeBtn } from './components'
 
 function App() {
-const [themeMode,setThemeMode]=useState("light")
+// const [themeMode,setThemeMode]=useState("light")
+const [themeMode,setThemeMode]=useState('light')
 
 const darkTheme=()=>{
-  setThemeMode("dark")
+  setThemeMode('dark')
 }
+
 const lightTheme=()=>{
-  setThemeMode("light")
+  setThemeMode('light')
 }
+
+// const darkTheme=()=>{
+//   setThemeMode("dark")
+// }
+// const lightTheme=()=>{
+//   setThemeMode("light")
+// }
 
 useEffect(()=>{
  document.querySelector('html').classList.remove("light","dark")

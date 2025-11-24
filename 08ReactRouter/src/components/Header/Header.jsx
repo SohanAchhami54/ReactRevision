@@ -37,7 +37,6 @@ const Header = () => {
          <button className='md:hidden' onClick={()=>setOpen((prev)=>!prev)}> <GiHamburgerMenu size={20} /></button>
            {open &&
             <div className="fixed top-0 right-0 w-[20%] h-[90vh] bg-gray-300 bg-opacity-90  px-2 py-5 md:hidden  rounded-lg break-all text-xs md:text-xl 
-            
           ">
             <button onClick={()=>setOpen(false)}> <RxCross2  size={20} /> </button>
              <ul className=' md:hidden flex flex-col bg-amber-200 space-y-4'>

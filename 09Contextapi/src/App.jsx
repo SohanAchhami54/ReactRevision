@@ -1,13 +1,17 @@
 import React from 'react'
-import Profile from './components/Profile'
+import UserContextProvider from './context/UserContextProvider'
 import Login from './components/Login'
+import Profile from './components/Profile'
+
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-3xl'>My name is sohan achhami.</h1>
-      <Profile/>
-      <Login/>
+      <UserContextProvider>
+          <h1 className='text-3xl'>My name is sohan achhami.</h1>
+          <Login/>
+          <Profile/>
+      </UserContextProvider>
     </div>
   )
 }

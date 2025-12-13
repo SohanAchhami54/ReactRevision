@@ -10,7 +10,7 @@ const App = () => {
     let str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     let passgenerated=''
     if (isNumber) str+='0123456789'
-     if (isCharacter) str+='!@#$%^&*()+{}[],.||<>'
+    if (isCharacter) str+='!@#$%^&*()+{}[],.||<>'
 
     for(let i=0;i<count;i++){
         let index=Math.floor(Math.random()*str.length);

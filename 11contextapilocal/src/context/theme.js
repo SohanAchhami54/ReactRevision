@@ -5,7 +5,7 @@ const Themecontext=React.createContext({
     darktheme:()=>{}
 })
 
-export const ThemeProvider=Themecontext.Provider
+export const Themeprovider=Themecontext.Provider
 
 export const useTheme=()=>{
     return useContext(Themecontext)

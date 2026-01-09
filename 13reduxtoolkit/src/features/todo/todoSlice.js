@@ -1,9 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit"
-
 const initialState={
-    todos:[{id:1,text:'hello'}]
+    todos:[{id:1,text:'Todo1'}]
 }
-
 const todoSlice=createSlice({
     name:'todo',
     initialState,
@@ -11,17 +9,17 @@ const todoSlice=createSlice({
         addTodo:(state,action)=>{
             state.todos.push({id:nanoid(),text:action.payload})
         },
-        deleteTodo:(state,action)=>{
-            state.todos=state.todos.filter((todo)=>todo.id!==action.payload)
-        },
         updateTodo:(state,action)=>{
-            state.todos=state.todos.map((todo)=>todo.id===action.payload.id?{...todo,text:action.payload.text}:todo)
+           state.todos=state.todos.map(todo=>todo.id===action.payload.id?{...todo,text:action.payload.text}:todo)
+        },
+        deleteTodo:(state,action)=>{
+            state.todos=state.todos.filter(todo=>todo.id!==action.payload)
         }
     }
 })
-export const {addTodo,deleteTodo,updateTodo}=todoSlice.actions
-export const todoReducer= todoSlice.reducer
 
+export const {addTodo,updateTodo,deleteTodo}=todoSlice.actions
+export const todoReducer=todoSlice.reducer
 
 
 //this is the state.
@@ -58,4 +56,14 @@ export const todoReducer= todoSlice.reducer
 //     default:
 //       return state
 //   }
+// }
+
+
+
+//this is the state in the redux store
+// state = {
+//   todos: [
+//     { id: 1, text: "hello" },
+//     { id: 2, text: "Buy milk" }
+//   ]
 // }

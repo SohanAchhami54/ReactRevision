@@ -1,33 +1,39 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import {useDispatch} from 'react-redux'
 import { addTodo, updateTodo } from '../features/todo/todoSlice'
 
-const AddTodo = ({data,setData,isEditable,setIsEditable,isId,setIsId}) => {
-    const dispatch=useDispatch()
+const AddTodo = ({data,setData,isEditable,setIsEditable , isId}) => {
+  const dispatch=useDispatch()
+  const handleAdd=(e)=>{
+     e.preventDefault()
+    if(!data) return null
+    if(isEditable){
+      dispatch(updateTodo({id:isId,text:data}))
+      setIsEditable(prev=>!prev)
+      setData('')
+    }else{
+      dispatch(addTodo(data))
+      setData('')
+    }
     
-     const handleAdd=(e)=>{
-      if(!data) return null
-        e.preventDefault()
-        if(isEditable){
-          dispatch(updateTodo({id:isId,text:data}))
-          setIsEditable(false)
-          setData('')
-        }else{
-           dispatch(addTodo(data))
-           setData('')
-        }
-      }
+    
+  }
   return (
-    <>
-     <div className='flex justify-center items-center pt-10 gap-3'>
-        <input type="text"
-        value={data}
-        onChange={(e)=>setData(e.target.value)}
-        className='border rounded-md' />
-        <button onClick={handleAdd}
-         className='bg-blue-700 text-white px-2 rounded-2xl'>Add</button>
-     </div>    
-    </>
+   <>
+   <div className='flex justify-center gap-4'>
+     <input type="text"
+      value={data}
+      onChange={(e)=>setData(e.target.value)}
+      className='border border-black rounded-md w-50 xl:w-90' />
+
+      <button 
+      onClick={handleAdd}
+      
+      className='text-white bg-green-600 px-3 rounded-md'>Add</button>
+   </div>
+      
+   </>
   )
 }
-export default  AddTodo
+
+export default AddTodo

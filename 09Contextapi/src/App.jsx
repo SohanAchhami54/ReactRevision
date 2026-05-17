@@ -1,18 +1,18 @@
 import React from 'react'
-import UserContextProvider from './context/UserContextProvider'
 import Login from './components/Login'
+import UserContextProvider from './context/UserContextProvider'
 import Profile from './components/Profile'
-
 
 const App = () => {
   return (
-    <div>
-      <UserContextProvider>
-          <h1 className='text-3xl'>My name is sohan achhami.</h1>
-          <Login/>
-          <Profile/>
-      </UserContextProvider>
-    </div>
+    <UserContextProvider>
+         <div className='flex flex-col justify-center items-center  mt-10'>
+         <h1>This context api</h1>
+        <Login/>
+        <Profile/>
+      </div>
+    </UserContextProvider>
+  
   )
 }
 

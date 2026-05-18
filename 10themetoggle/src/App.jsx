@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react"
-import { Button, Card } from "./components"
-import { ThemeProvider } from "./context/theme"
+import React, { useEffect, useState } from 'react'
+import { ThemeContextProvider } from './context/theme'
+import Button from './components/Button'
+import Card from './components/Card'
 
-function App() {
-  const [thememode,setThemeMode]=useState('light')
-  const lighttheme=()=>{
-    setThemeMode('light')
+const App = () => {
+   
+  const [thememode,setThememode]=useState('light') 
+  const darkTheme=()=>{
+    setThememode('dark')
   }
-  const darktheme=()=>{
-    setThemeMode('dark')
+  const lightTheme=()=>{
+    setThememode('light')
   }
-
-useEffect(()=>{
-  document.querySelector('html').classList.remove('light','dark')
-  document.querySelector('html').classList.add(thememode)
-},[thememode])
+ 
+  useEffect(()=>{
+    document.querySelector('html').classList.remove('light','dark') 
+    document.querySelector('html').classList.add(thememode)
+    },[thememode])
 
   return (
-    <>
-    <ThemeProvider value={{thememode,lighttheme,darktheme}}>
-      <h1 className="text-3xl bg-amber-500">sohan</h1>
-      <Button/>
-      <Card/>
-    </ThemeProvider>
-      
-    </>
+    <ThemeContextProvider value={{thememode,darkTheme,lightTheme}}>
+      <div className={`${thememode==='dark'?'bg-black':'bg-white'} min-h-screen `}>
+          <Button/>
+         <Card/>   
+      </div>
+    </ThemeContextProvider>
   )
 }
 

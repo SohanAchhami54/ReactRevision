@@ -2,25 +2,24 @@ import React from 'react'
 import { useTheme } from '../context/theme'
 
 const Button = () => {
-    const {thememode,lighttheme,darktheme}=useTheme()
-
-    const themeChange=(e)=>{
-        const darkmode=e.currentTarget.checked
-        if(darkmode){
-            darktheme()
-        }else{
-            lighttheme()
-        }
-    }
+  const {thememode,darkTheme,lightTheme}=useTheme()
+  
+  const onChangemode=(e)=>{
+     const darkmode=e.currentTarget.checked
+     if(darkmode){
+      darkTheme()
+     }else{
+      lightTheme()
+     }
+  }
   return (
-    <div>
-      <h1>THis is button</h1>
-      <input type="checkbox"
-      value=''
-      checked={thememode==='dark'}
-      onChange={themeChange}
+    <>
+      <h1 className={thememode==='dark'?'text-white':'text-black'}>This is Button.</h1>
+      <input type="checkbox" 
+       checked={thememode==='dark'}
+       onChange={onChangemode}
       />
-    </div>
+    </>
   )
 }
 

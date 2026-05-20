@@ -43,10 +43,7 @@ const Todo = ({ todo }) => {
             if (todo.isCompleted) return
 
             if (isEditable) {
-              updateTodo(todo.id, {
-                ...todo,
-                todo: newTodo   // ✅ FIXED HERE
-              })
+              updateTodo(todo.id, newTodo)
             }
 
             setIsEditable((prev) => !prev)

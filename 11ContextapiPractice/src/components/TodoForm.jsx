@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTodo } from '../context/TodoContext'
 
 const TodoForm = () => {
-  const { addTodo } = useTodo()
+  const { addTodo,thememode,setTodos } = useTodo()
   const [todo, setTodo] = useState('')
-
+ 
   const add = (e) => {
     e.preventDefault()
     if (!todo.trim()) return
@@ -13,8 +13,11 @@ const TodoForm = () => {
     setTodo('')
   }
 
+// 
+
   return (
-    <form onSubmit={add} className="flex gap-3">
+    <div >
+       <form onSubmit={add} className={`flex gap-3 `}>
 
       <input
         type="text"
@@ -29,6 +32,8 @@ const TodoForm = () => {
       </button>
 
     </form>
+    </div>
+   
   )
 }
 

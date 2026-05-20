@@ -2,22 +2,22 @@ import React, { useState } from 'react'
 import { useTodo } from '../context/TodoContext'
 
 const Todo = ({ todo }) => {
-  const { updateTodo, toggleTodo, deleteTodo } = useTodo()
+  const {thememode, updateTodo, toggleTodo, deleteTodo } = useTodo()
 
   const [isEditable, setIsEditable] = useState(false)
   const [newTodo, setNewTodo] = useState(todo.todo)
 
   return (
-    <div className="flex items-center justify-between bg-gray-700/60 hover:bg-gray-700 transition p-3 rounded-xl shadow-md">
+    <div className={`flex items-center justify-between  p-3 rounded-xl shadow-md ${thememode==='dark'?'text-white bg-black':'text-black bg-white'} `}>
 
       {/* LEFT SIDE */}
-      <div className="flex items-center gap-3 w-full">
+      <div className={`flex items-center gap-3 w-full  `}>
 
         <input
           type="checkbox"
           checked={todo.isCompleted}
           onChange={() => toggleTodo(todo.id)}
-          className="w-4 h-4 accent-blue-500"
+          className="w-4 h-4"
         />
 
         <input
@@ -28,7 +28,7 @@ const Todo = ({ todo }) => {
           className={`w-full bg-transparent outline-none px-2 py-1 rounded ${
             todo.isCompleted
               ? "line-through text-gray-400"
-              : "text-white"
+              : ""
           } ${
             isEditable ? "border border-gray-500 bg-gray-800 rounded-md" : ""
           }`}

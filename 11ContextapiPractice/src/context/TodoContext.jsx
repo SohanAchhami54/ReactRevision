@@ -10,11 +10,15 @@ const TodoContext=createContext({
      addTodo:(todo)=>{}, 
      updateTodo:(id,newTodo)=>{}, 
      deleteTodo:(id)=>{}, 
-     toggleTodo:(id)=>{}
+     toggleTodo:(id)=>{},
+     themeMode:'light',
+     darktheme:()=>{}, 
+     lighttheme:()=>{}
 })
 
 export const TodoProvider=({children})=>{
     const [todos,setTodos]=useState([])
+    const [thememode,setThememode]=useState('light')
     
     const addTodo=(todo)=>{
         setTodos((prev)=>[...prev,{id:Date.now(),...todo}]) 
@@ -28,9 +32,17 @@ export const TodoProvider=({children})=>{
     const toggleTodo=(id)=>{
        setTodos((prev)=>prev.map(data=>data.id===id?{...data,isCompleted:!data.isCompleted}:data))
     }
+    const darktheme=()=>{
+        setThememode('dark')
+    }
+    const lighttheme=()=>{
+        setThememode('light')
+    }
+
+    const value={thememode,setThememode,todos,setTodos,addTodo,updateTodo,deleteTodo,toggleTodo,darktheme,lighttheme}
 
     return (
-    <TodoContext.Provider value={{todos,setTodos,addTodo,updateTodo,deleteTodo,toggleTodo}}>
+    <TodoContext.Provider value={value}>
           {children}
     </TodoContext.Provider>
 )

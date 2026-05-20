@@ -11,6 +11,11 @@ const Thememode = () => {
         lighttheme()
       }
     }
+
+    useEffect(()=>{
+        document.querySelector('html').classList.remove('light','dark') 
+        document.querySelector('html').classList.add(thememode)
+    },[thememode])
   return (
     <div>
        <label htmlFor="thememode"></label>
